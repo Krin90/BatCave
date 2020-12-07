@@ -2,7 +2,7 @@ import praw
 import re
 
 
-reddit = praw.Reddit(JoshAllen)
+reddit = praw.Reddit('JoshAllen')
 
 
 subreddit = reddit.subreddit('denverbroncos')
