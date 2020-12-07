@@ -1,18 +1,16 @@
 import praw
+import re
 
 
-reddit = praw.Reddit(client_id='46-O9Fck9EDQkg',
-                     client_secret='s66xTLBCc9P6E4KwHbVdy_wJBrDsjg',
-                     username='beepbopboopbop117',
-                     password='Roland27!',
-                     user_agent='JoshAllen by me')
+reddit = praw.Reddit(JoshAllen)
 
 
-subreddit = reddit.subreddit('DenverBroncos')
+subreddit = reddit.subreddit('denverbroncos')
 
-keyphrase = 'Josh Allen'
 
 for comment in subreddit.stream.comments():
-    if keyphrase in comment.body:
+    print(comment.body)
+    if re.search("Josh Allen", comment.body, re.IGNORECASE):
         reply = "Not drafting Josh Allen is the biggest mistake of the last 5 years"
-        comment.reply
+        comment.reply(reply)
+        print(reply)
